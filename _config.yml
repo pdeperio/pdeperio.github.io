@@ -7,8 +7,8 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : #"Patrick de Perio / Research Website"
-title_separator          : "-"
+title                    : #"Research Website"
+title_separator          : #"-"
 name                     : &name "Patrick de Perio"
 description              : &description "Particle Physics"
 url                      : https://pdeperio.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -115,7 +115,6 @@ author:
   xing             :
   youtube          :
   wikipedia        :
-  inspire          : "https://inspirehep.net/authors/1054198"
 
 
 # Reading Files
