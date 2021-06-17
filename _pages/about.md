@@ -2,7 +2,7 @@
 permalink: /
 title: "Patrick de Perio"
 excerpt: "Research Website of Patrick de Perio"
-author_profile: false
+author_profile: true
 redirect_from: 
   - /about/
   - /about.html
