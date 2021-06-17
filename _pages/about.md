@@ -44,7 +44,7 @@ Experiments
   Fermilab, USA, 2018 -- Present
   
 * __Super-Kamiokande__, Super-Kamioka Neutrino Detection Experiment   
-  Kamioka Observatory, ICRR, Japan, 2018 -- Present and 2011 -- 2015
+  Kamioka Observatory, ICRR, Japan, 2011 -- 2015 and 2018 -- Present
 
 * __XENON__, Direct Dark Matter Search Experiment   
   Laboratori Nazionali del Gran Sasso (LNGS), L'Aquila, Italy, 2014 -- 2018
