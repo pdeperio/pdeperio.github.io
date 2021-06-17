@@ -73,23 +73,10 @@ __Postdocs__
 * John Walker, University of Winnipeg, 2018 -- 2020 
 * Saul Cuen-Rochin, TRIUMF, 2019
 
-__Ph.D. Students__
-* Trevor Towstego, University of Toronto (Machine Learning), 2018 -- 
-<!--- 
-* Tianyu Zhu, Columbia University (XENON Detector), 2015 -- 2018
-Joseph Howlett, Columbia University (XENON Detector), 2014 -- 2018
-* Yun Zhang, Columbia University (XENON Detector), 2014 -- 2018
-* Zach Greene, Columbia University (XENON Detector), 2014 -- 2018
-* Matthew Anthony, Columbia University (XENON Detector), 2014 -- 2017
--->
-
-__Masters Students__
+__Ph.D./Masters Students__
 * Rhea Gaur, University of British Columbia (Calibration/ML), 2021 -- 
 * Vincent Gousy-Leblanc, University of Victoria (Photosensors), 2020 -- 
-<!--- 
-* Gavin Slater, The University of Edinburgh (Detector Development), 2019 -- 2020
-* Shahin Ahmadi, University of Winnipeg (Photosensors), 2019 -- 2020
--->
+* Trevor Towstego, University of Toronto (Machine Learning), 2018 -- 
 
 <!--- 
 Undergraduates
