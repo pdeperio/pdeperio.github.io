@@ -1,7 +1,7 @@
 ---
 permalink: /
-title: "Patrick de Perio"
-excerpt: "About me"
+title: ""
+excerpt: "Research Website of Patrick de Perio"
 author_profile: true
 redirect_from: 
   - /about/
@@ -30,19 +30,18 @@ Appointments
 
 Experiments
 ------
-* 2018 -- **Hyper-Kamiokande**, Hyper-Kamioka Neutrino Detection Experiment, Kamioka Observatory, ICRR, Japan
-* 2019 -- **WCTE**, Water Cherenkov Test Experiment, CERN, Switzerland
-* 2018 -- **EMPHATIC**, Experiment to Measure the Production of Hadrons at a Testbeam in Chicagoland, Fermilab, USA
-* 2011 -- 2015, 2018 -- **Super-Kamiokande**, Super-Kamioka Neutrino Detection Experiment, Kamioka Observatory, ICRR, Japan
-* 2014 -- 2018 **XENON**, Direct Dark Matter Search Experiment, Laboratori Nazionali del Gran Sasso (LNGS), L'Aquila, Italy
-* 2009 -- 2015 **DUET**, Dual Use Experiment at TRIUMF TRIUMF, Vancouver, BC, Canada
-* 2007 -- 2015 **T2K**, Tokai to Kamioka Long-Baseline Neutrino Oscillation Experiment, J-PARC Tokai, and Kamioka, Japan
-* 2005 -- 2008 **Kycia Low Temperature Group**, University of Waterloo, Waterloo, ON
+* 2018 -- *Hyper-Kamiokande*, Hyper-Kamioka Neutrino Detection Experiment, Kamioka Observatory, ICRR, Japan
+* 2019 -- *WCTE*, Water Cherenkov Test Experiment, CERN, Switzerland
+* 2018 -- *EMPHATIC*, Experiment to Measure the Production of Hadrons at a Testbeam in Chicagoland, Fermilab, USA
+* 2011 -- 2015, 2018 -- *Super-Kamiokande*, Super-Kamioka Neutrino Detection Experiment, Kamioka Observatory, ICRR, Japan
+* 2014 -- 2018 *XENON*, Direct Dark Matter Search Experiment, Laboratori Nazionali del Gran Sasso (LNGS), L'Aquila, Italy
+* 2009 -- 2015 *DUET*, Dual Use Experiment at TRIUMF TRIUMF, Vancouver, BC, Canada
+* 2007 -- 2015 *T2K*, Tokai to Kamioka Long-Baseline Neutrino Oscillation Experiment, J-PARC Tokai, and Kamioka, Japan
+* 2005 -- 2008 *Kycia Low Temperature Group*, University of Waterloo, Waterloo, ON
 
 Supervisory/Advisory Experience
 ------
-**Postdocs**
-
+__Postdocs__
 * Xiaoyue Li, TRIUMF, 2021 -- 
 * Ryosuke Akutsu, TRIUMF, 2020 -- 
 * Nick Prouse, TRIUMF, 2018 -- 
@@ -50,9 +49,7 @@ Supervisory/Advisory Experience
 * John Walker, University of Winnipeg, 2018  -- 2020 
 * Saul Cuen-Rochin, TRIUMF, 2019
 
-
-**Ph.D. Students**
-
+__Ph.D. Students__
 * Trevor Towstego, University of Toronto (Machine Learning), 2018 -- 
 * Tianyu Zhu, Columbia University (XENON Detector), 2015 -- 2018
 * Joseph Howlett, Columbia University (XENON Detector), 2014 -- 2018
@@ -60,8 +57,7 @@ Supervisory/Advisory Experience
 * Zach Greene, Columbia University (XENON Detector), 2014 -- 2018
 * Matthew Anthony, Columbia University (XENON Detector), 2014 -- 2017
 
-**Masters Students**
-
+__Masters Students__
 * Rhea Gaur, University of British Columbia (Calibration/ML), 2021 -- 
 * Vincent Gousy-Leblanc, University of Victoria (Photosensors), 2020 -- 
 * Gavin Slater, The University of Edinburgh (Detector Development), 2019 -- 2020
