@@ -8,22 +8,40 @@ redirect_from:
   - /about.html
 ---
 
-I am a particle physicist at TRIUMF. I work on Super-K and Hyper-K in Japan.
+I am a particle physicist at TRIUMF. My research focuses on solving some of the 
+outstanding mysteries in modern physics, 
+from the matter/antimatter asymmetry through potential charge-parity violation 
+in neutrino oscillation experiments T2K and Super-Kamiokande, to unveiling 
+the invisible matter in our universe with direct dark matter searches, XENON100 
+and XENON1T. Throughout my career in these collaborations, I led a wide range of 
+efforts designing and constructing instruments critical for the experiments, as well 
+as developing analysis algorithms to minimize systematics to an unprecedented level. 
 
 Education
-======
+------
 * 2014 Ph.D. in Physics, University of Toronto 
 * 2008 B.Sc. in Mathematical Physics, University of Waterloo
 
 Appointments
-======
-* 2018 --  Research Scientist (Tenure-track), TRIUMF, Vancouver, BC
-* 2014 -- 2018 Postdoctoral Research Fellow, Columbia University, New York, NY
-* 2008 –- 2014 Graduate Research Assistant, University of Toronto, Toronto, ON
+------
+* 2018 --  Research Scientist (Tenure-track), TRIUMF, Vancouver, BC, Canada
+* 2014 -- 2018 Postdoctoral Research Fellow, Columbia University, New York, NY, USA
+* 2008 –- 2014 Graduate Research Assistant, University of Toronto, Toronto, ON, Canada
+
+Experiments
+------
+* 2018 -- **Hyper-Kamiokande**, Hyper-Kamioka Neutrino Detection Experiment, Kamioka Observatory, ICRR, Japan
+* 2019 -- **WCTE**, Water Cherenkov Test Experiment, CERN, Switzerland
+* 2018 -- **EMPHATIC**, Experiment to Measure the Production of Hadrons at a Testbeam in Chicagoland, Fermilab, USA
+* 2011 -- 2015, 2018 -- **Super-Kamiokande**, Super-Kamioka Neutrino Detection Experiment, Kamioka Observatory, ICRR, Japan
+* 2014 -- 2018 **XENON**, Direct Dark Matter Search Experiment, Laboratori Nazionali del Gran Sasso (LNGS), L'Aquila, Italy
+* 2009 -- 2015 **DUET**, Dual Use Experiment at TRIUMF TRIUMF, Vancouver, BC, Canada
+* 2007 -- 2015 **T2K**, Tokai to Kamioka Long-Baseline Neutrino Oscillation Experiment, J-PARC Tokai, and Kamioka, Japan
+* 2005 -- 2008 **Kycia Low Temperature Group**, University of Waterloo, Waterloo, ON
 
 Supervisory/Advisory Experience
-======
-Postdocs
+------
+**Postdocs**
 
 * Xiaoyue Li, TRIUMF, 2021 -- 
 * Ryosuke Akutsu, TRIUMF, 2020 -- 
@@ -33,7 +51,7 @@ Postdocs
 * Saul Cuen-Rochin, TRIUMF, 2019
 
 
-Ph.D. Students
+**Ph.D. Students**
 
 * Trevor Towstego, University of Toronto (Machine Learning), 2018 -- 
 * Tianyu Zhu, Columbia University (XENON Detector), 2015 -- 2018
@@ -42,7 +60,7 @@ Ph.D. Students
 * Zach Greene, Columbia University (XENON Detector), 2014 -- 2018
 * Matthew Anthony, Columbia University (XENON Detector), 2014 -- 2017
 
-Masters Students
+**Masters Students**
 
 * Rhea Gaur, University of British Columbia (Calibration/ML), 2021 -- 
 * Vincent Gousy-Leblanc, University of Victoria (Photosensors), 2020 -- 
