@@ -10,10 +10,14 @@ redirect_from:
 
 I am a particle physicist at TRIUMF. My research focuses on solving some of the 
 outstanding mysteries in modern physics, 
-from the matter/antimatter asymmetry through potential charge-parity violation 
-in neutrino oscillation experiments T2K and Super-Kamiokande, to unveiling 
-the invisible matter in our universe with direct dark matter searches, XENON100 
-and XENON1T. Throughout my career in these collaborations, I led a wide range of 
+from the [matter/antimatter asymmetry](https://en.wikipedia.org/wiki/Baryon_asymmetry) 
+through potential [charge-parity violation](https://en.wikipedia.org/wiki/CP_violation) 
+in neutrino oscillation experiments [T2K](https://t2k-experiment.org/) and 
+[Super-Kamiokande](http://www-sk.icrr.u-tokyo.ac.jp/sk/index-e.html), to unveiling 
+the invisible [dark matter](https://en.wikipedia.org/wiki/Dark_matter) 
+in our universe with direct dark matter searches, XENON100 
+and [XENON1T](http://www.xenon1t.org/). 
+Throughout my career in these collaborations, I led a wide range of 
 efforts designing and constructing instruments critical for the experiments, as well 
 as developing analysis algorithms to minimize systematics to an unprecedented level. 
 
