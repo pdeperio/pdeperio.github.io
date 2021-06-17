@@ -28,9 +28,9 @@ Education
 
 Appointments
 ------
-* 2018 -- Present Research Scientist (Tenure-track), TRIUMF, Vancouver, BC, Canada
-* 2014 -- 2018 Postdoctoral Research Fellow, Columbia University, New York, NY, USA
-* 2008 -- 2014 Graduate Research Assistant, University of Toronto, Toronto, ON, Canada
+* 2018 -- Present, Research Scientist (Tenure-track), TRIUMF, Vancouver, BC, Canada
+* 2014 -- 2018, Postdoctoral Research Fellow, Columbia University, New York, NY, USA
+* 2008 -- 2014, Graduate Research Assistant, University of Toronto, Toronto, ON, Canada
 
 Experiments
 ------
