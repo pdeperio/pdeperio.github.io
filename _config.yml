@@ -7,13 +7,13 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : #"Research Website"
-title_separator          : #"-"
-name                     : #&name "Patrick de Perio"
-description              : #&description "Particle Physics"
+title                    : "Patrick de Perio"
+title_separator          : "-"
+name                     : &name "Patrick de Perio"
+description              : &description "Particle Physics"
 url                      : https://pdeperio.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # "" # the subpath of your site, e.g. "/blog"
-repository               : # "academicpages/academicpages.github.io"
+repository               : "pdeperio/pdeperio.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
