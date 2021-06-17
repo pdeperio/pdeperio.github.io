@@ -12,8 +12,9 @@ I am a particle physicist at TRIUMF. My research focuses on solving some of the
 outstanding mysteries in modern physics, 
 from the [matter/antimatter asymmetry](https://en.wikipedia.org/wiki/Baryon_asymmetry) 
 through potential [charge-parity violation](https://en.wikipedia.org/wiki/CP_violation) 
-in neutrino oscillation experiments [T2K](https://t2k-experiment.org/) and 
-[Super-Kamiokande](http://www-sk.icrr.u-tokyo.ac.jp/sk/index-e.html), to unveiling 
+in neutrino oscillation experiments [T2K](https://t2k-experiment.org/), 
+[Super-Kamiokande](http://www-sk.icrr.u-tokyo.ac.jp/sk/index-e.html),
+and [Hyper-Kamiokande](http://www.hyper-k.org), to unveiling 
 the invisible [dark matter](https://en.wikipedia.org/wiki/Dark_matter) 
 in our universe with direct dark matter searches, XENON100 
 and [XENON1T](http://www.xenon1t.org/). 
@@ -40,8 +41,8 @@ Experiments
 * __WCTE__, Water Cherenkov Test Experiment   
   CERN, Switzerland, 2019 -- Present
 
-* __EMPHATIC__, Experiment to Measure the Production of Hadrons at a Testbeam in Chicagoland   
-  Fermilab, USA, 2018 -- Present
+#* __EMPHATIC__, Experiment to Measure the Production of Hadrons at a Testbeam in Chicagoland   
+# Fermilab, USA, 2018 -- Present
   
 * __Super-Kamiokande__, Super-Kamioka Neutrino Detection Experiment   
   Kamioka Observatory, ICRR, Japan, 2011 -- 2015 and 2018 -- Present
@@ -49,8 +50,8 @@ Experiments
 * __XENON__, Direct Dark Matter Search Experiment   
   Laboratori Nazionali del Gran Sasso (LNGS), L'Aquila, Italy, 2014 -- 2018
   
-* __DUET__, Dual Use Experiment at TRIUMF   
-  TRIUMF, Vancouver, BC, Canada, 2009 -- 2015 
+#* __DUET__, Dual Use Experiment at TRIUMF   
+ # TRIUMF, Vancouver, BC, Canada, 2009 -- 2015 
   
 * __T2K__, Tokai to Kamioka Long-Baseline Neutrino Oscillation Experiment   
   J-PARC Tokai, and Kamioka, Japan, 2007 -- 2015
@@ -70,17 +71,17 @@ __Postdocs__
 
 __Ph.D. Students__
 * Trevor Towstego, University of Toronto (Machine Learning), 2018 -- 
-* Tianyu Zhu, Columbia University (XENON Detector), 2015 -- 2018
-* Joseph Howlett, Columbia University (XENON Detector), 2014 -- 2018
-* Yun Zhang, Columbia University (XENON Detector), 2014 -- 2018
-* Zach Greene, Columbia University (XENON Detector), 2014 -- 2018
-* Matthew Anthony, Columbia University (XENON Detector), 2014 -- 2017
+#* Tianyu Zhu, Columbia University (XENON Detector), 2015 -- 2018
+#* Joseph Howlett, Columbia University (XENON Detector), 2014 -- 2018
+#* Yun Zhang, Columbia University (XENON Detector), 2014 -- 2018
+#* Zach Greene, Columbia University (XENON Detector), 2014 -- 2018
+#* Matthew Anthony, Columbia University (XENON Detector), 2014 -- 2017
 
 __Masters Students__
 * Rhea Gaur, University of British Columbia (Calibration/ML), 2021 -- 
 * Vincent Gousy-Leblanc, University of Victoria (Photosensors), 2020 -- 
-* Gavin Slater, The University of Edinburgh (Detector Development), 2019 -- 2020
-* Shahin Ahmadi, University of Winnipeg (Photosensors), 2019 -- 2020
+#* Gavin Slater, The University of Edinburgh (Detector Development), 2019 -- 2020
+#* Shahin Ahmadi, University of Winnipeg (Photosensors), 2019 -- 2020
 
 <!--- 
 sUndergraduates
