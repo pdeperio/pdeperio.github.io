@@ -9,7 +9,7 @@
 locale                   : "en-US"
 title                    : "Patrick de Perio"
 title_separator          : "-"
-name                     : &name "Patrick de Perio"
+name                     : &name "de Perio" ## test if this is the tab name
 description              : &description "Particle Physics"
 url                      : https://pdeperio.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # "" # the subpath of your site, e.g. "/blog"
