@@ -17,9 +17,9 @@ Education
 
 Appointments
 ======
-* 2018 -  Research Scientist (Tenure-track), TRIUMF, Vancouver, BC
-* 2014 - 2018 Postdoctoral Research Fellow, Columbia University, New York, NY
-* 2008 – 2014 Graduate Research Assistant, University of Toronto, Toronto, ON
+* 2018 --  Research Scientist (Tenure-track), TRIUMF, Vancouver, BC
+* 2014 -- 2018 Postdoctoral Research Fellow, Columbia University, New York, NY
+* 2008 –- 2014 Graduate Research Assistant, University of Toronto, Toronto, ON
 
 Supervisory/Advisory Experience
 ======
@@ -42,8 +42,6 @@ Ph.D. Students
 * Zach Greene, Columbia University (XENON Detector), 2014 -- 2018
 * Matthew Anthony, Columbia University (XENON Detector), 2014 -- 2017
 
-
-
 Masters Students
 
 * Rhea Gaur, University of British Columbia (Calibration/ML), 2021 -- 
@@ -51,9 +49,8 @@ Masters Students
 * Gavin Slater, The University of Edinburgh (Detector Development), 2019 -- 2020
 * Shahin Ahmadi, University of Winnipeg (Photosensors), 2019 -- 2020
 
-
-
-Undergraduates
+<!--- 
+sUndergraduates
 
 * Soumyasnigdha Kudu, Mitacs, India (Machine Learning), 2021
 * Zakaria Patel, McMaster University (Machine Learning), 2021
@@ -99,3 +96,4 @@ Undergraduates
 * Alexander Shaw, Whitman College (Machine Learning)  , 2017
 * Olenka Jain, Harvard University (Detector Simulations) , 2017
 * Cameo Lance, Columbia University (Cryogenics) , 2015
+-->
