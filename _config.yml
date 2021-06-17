@@ -82,9 +82,9 @@ analytics:
 author:
   name             : "Patrick de Perio"
   avatar           : "PHOTO-PATRICK.jpg"
-  bio              : #"TRIUMF"
+  bio              : "TRIUMF"
   location         : "Vancouver, Canada"
-  employer         : "TRIUMF"
+  employer         : #"TRIUMF"
   pubmed           : # 
   googlescholar    : "https://scholar.google.com/citations?user=jyLWxPYAAAAJ&hl=en"
   email            : "pdeperio@triumf.ca"
