@@ -1,8 +1,8 @@
 ---
 permalink: /
-title: "de Perio"
+title: "Patrick de Perio"
 excerpt: "Research Website of Patrick de Perio"
-author_profile: true
+author_profile: false
 redirect_from: 
   - /about/
   - /about.html
