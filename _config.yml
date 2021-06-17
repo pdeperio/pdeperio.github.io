@@ -7,9 +7,9 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : #""
-title_separator          : #"-"
-name                     : &name "Research website of Patrick de Perio" ## test if this is the tab name
+title                    : "Research website of Patrick de Perio"
+title_separator          : ""#"-"
+name                     : &name "Research website of Patrick de Perio" ## doesn't really go anywhere
 description              : &description "Particle Physics"
 url                      : https://pdeperio.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # "" # the subpath of your site, e.g. "/blog"
