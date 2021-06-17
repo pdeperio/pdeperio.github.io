@@ -24,16 +24,22 @@ Education
 
 Appointments
 ------
-* 2018 --  Research Scientist (Tenure-track), TRIUMF, Vancouver, BC, Canada
+* 2018 -- Present Research Scientist (Tenure-track), TRIUMF, Vancouver, BC, Canada
 * 2014 -- 2018 Postdoctoral Research Fellow, Columbia University, New York, NY, USA
-* 2008 –- 2014 Graduate Research Assistant, University of Toronto, Toronto, ON, Canada
+* 2008 -- 2014 Graduate Research Assistant, University of Toronto, Toronto, ON, Canada
 
 Experiments
 ------
-* 2018 -- *Hyper-Kamiokande*, Hyper-Kamioka Neutrino Detection Experiment, Kamioka Observatory, ICRR, Japan
-* 2019 -- *WCTE*, Water Cherenkov Test Experiment, CERN, Switzerland
-* 2018 -- *EMPHATIC*, Experiment to Measure the Production of Hadrons at a Testbeam in Chicagoland, Fermilab, USA
-* 2011 -- 2015, 2018 -- *Super-Kamiokande*, Super-Kamioka Neutrino Detection Experiment, Kamioka Observatory, ICRR, Japan
+* *Hyper-Kamiokande*, Hyper-Kamioka Neutrino Detection Experiment
+
+  Kamioka Observatory, ICRR, Japan, 2018 -- Present 
+
+* *WCTE*, Water Cherenkov Test Experiment
+  
+  CERN, Switzerland, 2019 -- Present
+
+* 2018 -- Present *EMPHATIC*, Experiment to Measure the Production of Hadrons at a Testbeam in Chicagoland, Fermilab, USA
+* 2018 -- Present and 2011 -- 2015 *Super-Kamiokande*, Super-Kamioka Neutrino Detection Experiment, Kamioka Observatory, ICRR, Japan
 * 2014 -- 2018 *XENON*, Direct Dark Matter Search Experiment, Laboratori Nazionali del Gran Sasso (LNGS), L'Aquila, Italy
 * 2009 -- 2015 *DUET*, Dual Use Experiment at TRIUMF TRIUMF, Vancouver, BC, Canada
 * 2007 -- 2015 *T2K*, Tokai to Kamioka Long-Baseline Neutrino Oscillation Experiment, J-PARC Tokai, and Kamioka, Japan
@@ -42,11 +48,11 @@ Experiments
 Supervisory/Advisory Experience
 ------
 __Postdocs__
-* Xiaoyue Li, TRIUMF, 2021 -- 
-* Ryosuke Akutsu, TRIUMF, 2020 -- 
-* Nick Prouse, TRIUMF, 2018 -- 
-* Matej Pavin, TRIUMF, 2018 -- 
-* John Walker, University of Winnipeg, 2018  -- 2020 
+* Xiaoyue Li, TRIUMF, 2021 -- Present
+* Ryosuke Akutsu, TRIUMF, 2020 -- Present
+* Nick Prouse, TRIUMF, 2018 -- Present
+* Matej Pavin, TRIUMF, 2018 -- Present
+* John Walker, University of Winnipeg, 2018 -- 2020 
 * Saul Cuen-Rochin, TRIUMF, 2019
 
 __Ph.D. Students__
