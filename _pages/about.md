@@ -30,27 +30,28 @@ Appointments
 
 Experiments
 ------
-* __Hyper-Kamiokande__, Hyper-Kamioka Neutrino Detection Experiment
+* __Hyper-Kamiokande__, Hyper-Kamioka Neutrino Detection Experiment   
   Kamioka Observatory, ICRR, Japan, 2018 -- Present 
 
-* __WCTE__, Water Cherenkov Test Experiment
+* __WCTE__, Water Cherenkov Test Experiment   
   CERN, Switzerland, 2019 -- Present
 
-* __EMPHATIC__, Experiment to Measure the Production of Hadrons at a Testbeam in Chicagoland
+* __EMPHATIC__, Experiment to Measure the Production of Hadrons at a Testbeam in Chicagoland   
   Fermilab, USA, 2018 -- Present
   
-* __Super-Kamiokande__, Super-Kamioka Neutrino Detection Experiment
+* __Super-Kamiokande__, Super-Kamioka Neutrino Detection Experiment   
   Kamioka Observatory, ICRR, Japan, 2018 -- Present and 2011 -- 2015
-* __XENON__, Direct Dark Matter Search Experiment
+
+* __XENON__, Direct Dark Matter Search Experiment   
   Laboratori Nazionali del Gran Sasso (LNGS), L'Aquila, Italy, 2014 -- 2018
   
-* __DUET__, Dual Use Experiment at TRIUMF 
+* __DUET__, Dual Use Experiment at TRIUMF   
   TRIUMF, Vancouver, BC, Canada, 2009 -- 2015 
   
-* __T2K__, Tokai to Kamioka Long-Baseline Neutrino Oscillation Experiment
+* __T2K__, Tokai to Kamioka Long-Baseline Neutrino Oscillation Experiment   
   J-PARC Tokai, and Kamioka, Japan, 2007 -- 2015
 
-* __Kycia Low Temperature Group__
+* __Kycia Low Temperature Group__   
   University of Waterloo, Waterloo, ON, Canada, 2005 -- 2008 
 
 Supervisory/Advisory Experience
