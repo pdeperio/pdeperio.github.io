@@ -8,7 +8,8 @@ redirect_from:
   - /about.html
 ---
 
-I am a particle physicist at TRIUMF. My research focuses on solving some of the 
+I am a particle physicist at the Kavli IPMU, University of Tokyo. 
+My research focuses on solving some of the 
 outstanding mysteries in modern physics, 
 from the [matter/antimatter asymmetry](https://en.wikipedia.org/wiki/Baryon_asymmetry) 
 through potential [charge-parity violation](https://en.wikipedia.org/wiki/CP_violation) 
@@ -22,16 +23,17 @@ Throughout my career in these collaborations, I led a wide range of
 efforts designing and constructing instruments critical for the experiments, as well 
 as developing analysis algorithms to minimize systematics to an unprecedented level. 
 
+Appointments
+------
+* 2022 -- Present, Assistant Professor, Kavli IPMU (WPI), UTIAS, The University of Tokyo, Japan
+* 2018 -- 2022, Research Scientist (Tenure-track), TRIUMF, Vancouver, BC, Canada
+* 2014 -- 2018, Postdoctoral Research Fellow, Columbia University, New York, NY, USA
+* 2008 -- 2014, Graduate Research Assistant, University of Toronto, Toronto, ON, Canada
+
 Education
 ------
 * 2014 Ph.D. in Physics, University of Toronto 
 * 2008 B.Sc. in Mathematical Physics, University of Waterloo
-
-Appointments
-------
-* 2018 -- Present, Research Scientist (Tenure-track), TRIUMF, Vancouver, BC, Canada
-* 2014 -- 2018, Postdoctoral Research Fellow, Columbia University, New York, NY, USA
-* 2008 -- 2014, Graduate Research Assistant, University of Toronto, Toronto, ON, Canada
 
 Experiments
 ------
@@ -49,6 +51,9 @@ Experiments
 * __Super-Kamiokande__, Super-Kamioka Neutrino Detection Experiment   
   Kamioka Observatory, ICRR, Japan, 2011 -- 2015 and 2018 -- Present
 
+* __T2K__, Tokai to Kamioka Long-Baseline Neutrino Oscillation Experiment   
+  J-PARC Tokai, and Kamioka, Japan, 2007 -- 2015, 2022 -- Present
+
 * __XENON__, Direct Dark Matter Search Experiment   
   Laboratori Nazionali del Gran Sasso (LNGS), L'Aquila, Italy, 2014 -- 2018
   
@@ -57,26 +62,23 @@ Experiments
  TRIUMF, Vancouver, BC, Canada, 2009 -- 2015 
  -->
  
-* __T2K__, Tokai to Kamioka Long-Baseline Neutrino Oscillation Experiment   
-  J-PARC Tokai, and Kamioka, Japan, 2007 -- 2015
-
 * __Kycia Low Temperature Group__   
   University of Waterloo, Waterloo, ON, Canada, 2005 -- 2008 
 
 Supervisory/Advisory Experience
 ------
 __Postdocs__
-* Xiaoyue Li, TRIUMF, 2021 -- Present
-* Ryosuke Akutsu, TRIUMF, 2020 -- Present
-* Nick Prouse, TRIUMF, 2018 -- Present
-* Matej Pavin, TRIUMF, 2018 -- Present
-* John Walker, University of Winnipeg, 2018 -- 2020 
-* Saul Cuen-Rochin, TRIUMF, 2019
+* Xiaoyue Li, TRIUMF, 2021 -- 2022
+* Ryosuke Akutsu (co-advise), TRIUMF, 2020 -- 2022
+* Nick Prouse, TRIUMF, 2018 -- 2022
+* Matej Pavin (co-advise), TRIUMF, 2018 -- 2022
+* John Walker (co-advise), TRIUMF/University of Winnipeg, 2018 -- 2020 
+* Saul Cuen-Rochin (co-advise), TRIUMF, 2019
 
 __Ph.D./Masters Students__
-* Rhea Gaur, University of British Columbia (Calibration/ML), 2021 -- 
-* Vincent Gousy-Leblanc, University of Victoria (Photosensors), 2020 -- 
-* Trevor Towstego, University of Toronto (Machine Learning), 2018 -- 
+* Rhea Gaur, University of British Columbia (Calibration/ML), 2021 -- Present
+* Vincent Gousy-Leblanc (co-advise), University of Victoria (Photosensors), 2020 -- Present
+* Trevor Towstego (co-advise), University of Toronto (Machine Learning), 2018 -- 2021
 
 <!--- 
 Undergraduates
