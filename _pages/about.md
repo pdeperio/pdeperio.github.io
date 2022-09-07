@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a particle physicist at the Kavli IPMU, University of Tokyo. 
+I am an experimental particle physicist at the Kavli IPMU, University of Tokyo. 
 My research focuses on solving some of the 
 outstanding mysteries in modern physics, 
 from the [matter/antimatter asymmetry](https://en.wikipedia.org/wiki/Baryon_asymmetry) 
@@ -25,10 +25,10 @@ as developing analysis algorithms to minimize systematics to an unprecedented le
 
 Appointments
 ------
-* 2022 -- Present, Assistant Professor, Kavli IPMU (WPI), UTIAS, The University of Tokyo, Japan
-* 2018 -- 2022, Research Scientist (Tenure-track), TRIUMF, Vancouver, BC, Canada
-* 2014 -- 2018, Postdoctoral Research Fellow, Columbia University, New York, NY, USA
-* 2008 -- 2014, Graduate Research Assistant, University of Toronto, Toronto, ON, Canada
+* 2022 -- Present: Assistant Professor, Kavli IPMU, The University of Tokyo, Japan; Affiliate Scientist, TRIUMF
+* 2018 -- 2022: Research Scientist (Tenure-track), TRIUMF, Vancouver, BC, Canada
+* 2014 -- 2018: Postdoctoral Research Fellow, Columbia University, New York, NY, USA
+* 2008 -- 2014: Graduate Research Assistant, University of Toronto, Toronto, ON, Canada
 
 Education
 ------
