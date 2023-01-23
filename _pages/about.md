@@ -68,16 +68,15 @@ Experiments
 Supervisory/Advisory Experience
 ------
 __Postdocs__
-* Xiaoyue Li, TRIUMF, 2021 -- 2022
+* Xiaoyue Li, TRIUMF, 2021 -- 2023
 * Ryosuke Akutsu (co-advise), TRIUMF, 2020 -- 2022
-* Nick Prouse, TRIUMF, 2018 -- 2022
-* Matej Pavin (co-advise), TRIUMF, 2018 -- 2022
+* Nick Prouse, TRIUMF, 2018 -- 2023
 * John Walker (co-advise), TRIUMF/University of Winnipeg, 2018 -- 2020 
 * Saul Cuen-Rochin (co-advise), TRIUMF, 2019
 
 __Ph.D./Masters Students__
-* Rhea Gaur, University of British Columbia (Calibration/ML), 2021 -- Present
-* Vincent Gousy-Leblanc (co-advise), University of Victoria (Photosensors), 2020 -- Present
+* Rhea Gaur, University of British Columbia (Calibration), 2021 -- Present
+* Vincent Gousy-Leblanc (co-advise), University of Victoria (Photosensors), 2020 -- 2023
 * Trevor Towstego (co-advise), University of Toronto (Machine Learning), 2018 -- 2021
 
 <!--- 
