@@ -64,7 +64,7 @@ Experiments
  
 * __Kycia Low Temperature Group__   
   University of Waterloo, Waterloo, ON, Canada, 2005 -- 2008 
-
+<!--- 
 Supervisory/Advisory Experience
 ------
 __Postdocs__
@@ -78,6 +78,7 @@ __Ph.D./Masters Students__
 * Rhea Gaur, University of British Columbia (Calibration), 2021 -- Present
 * Vincent Gousy-Leblanc (co-advise), University of Victoria (Photosensors), 2020 -- 2023
 * Trevor Towstego (co-advise), University of Toronto (Machine Learning), 2018 -- 2021
+ -->
 
 <!--- 
 Undergraduates
