@@ -21,7 +21,7 @@ in our universe with direct dark matter searches, XENON100
 and [XENON1T](http://www.xenon1t.org/). 
 Throughout my career in these collaborations, I led a wide range of 
 efforts designing and constructing instruments critical for the experiments, as well 
-as developing analysis algorithms to minimize systematics to an unprecedented level. 
+as developing AI/ML analysis algorithms to minimize systematics to an unprecedented level. 
 
 Appointments
 ------
