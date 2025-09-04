@@ -1,6 +1,7 @@
 ---
-layout: single
 title: "Pano Test"
+layout: single
+permalink: /panotest/
 ---
 
 <!-- A-Frame -->
