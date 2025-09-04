@@ -3,32 +3,27 @@
   <style>
     .vr-360-wrapper { position: relative; }
     .vr-360-wrapper .vr-360-caption { margin:.5rem 0 0; font-size:.9rem; color:#666; }
-
-    /* Make sure the WebGL canvas actually receives pointer/touch events */
+    /* Make sure A-Frame canvas receives input */
     .vr-360-wrapper canvas.a-canvas { touch-action: none !important; pointer-events: auto !important; }
     .vr-360-wrapper .a-canvas { cursor: grab; }
     .vr-360-wrapper .a-canvas:active { cursor: grabbing; }
-
-    /* If your theme adds an image-zoom/lightbox overlay, ensure it doesn't sit on top */
-    .vr-360-wrapper { z-index: 1; }
   </style>
 
   <a-scene
     embedded
     vr-mode-ui="enabled: true"
     renderer="antialias: true"
-    style="width:100%; height: {{ include.height | default: '60vh' }};"
+    style="width: 100%; height: {{ include.height | default: '60vh' }};"
   >
     <a-assets>
       <img id="{{ _id }}-asset" src="{{ include.src | relative_url }}" crossorigin="anonymous">
     </a-assets>
 
-    <!-- 360 still image -->
+    <!-- 360 still -->
     <a-sky id="{{ _id }}-sky" src="#{{ _id }}-asset" rotation="0 -90 0"></a-sky>
 
-    <!-- Camera with drag-to-look -->
-    <a-entity id="{{ _id }}-cam" camera look-controls="pointerLockEnabled:false" position="0 0 0"></a-entity>
-    <a-entity camera look-controls="reverseMouseDrag: true" wasd-controls></a-entity>
+    <!-- Camera: reverse drag direction -->
+    <a-entity id="{{ _id }}-cam" camera look-controls="reverseMouseDrag: true; pointerLockEnabled: false" position="0 0 0"></a-entity>
   </a-scene>
 
   {%- if include.caption -%}
@@ -37,47 +32,47 @@
 
   <script>
   (function(){
-    var root = document.getElementById('{{ _id }}');
+    var root  = document.getElementById('{{ _id }}');
     var scene = root.querySelector('a-scene');
 
-    function clamp(v, min, max){ return Math.min(max, Math.max(min, v)); }
+    function clamp(v, a, b){ return Math.min(b, Math.max(a, v)); }
 
     scene.addEventListener('loaded', function(){
-      // Ensure look-controls is enabled (drag to look)
-      var camEl = document.getElementById('{{ _id }}-cam');
-      if (!camEl.components['look-controls']) camEl.setAttribute('look-controls', 'enabled: true');
+      var cam = scene.camera;               // THREE.PerspectiveCamera
+      if (!cam) return;
 
-      // --- Zoom for 360 sky via changing camera FOV (dolly doesn’t work for a sky dome) ---
-      var threeCam = scene.camera;
-      if (!threeCam) return;
+      var fovMin = 30, fovMax = 100;        // zoom bounds (smaller FOV = “zoomed in”)
 
-      // initial FOV; MM themes sometimes shrink text -> keep it comfortable
-      var fovMin = 30, fovMax = 100;
+      // --- Wheel zoom (desktop) ---
+      // attach to scene.canvas once it's ready
+      var attachWheel = function(){
+        var target = scene.canvas || root;
+        target.addEventListener('wheel', function(e){
+          e.preventDefault();
+          var step = (e.deltaY > 0 ? +2 : -2);
+          cam.fov = clamp(cam.fov + step, fovMin, fovMax);
+          cam.updateProjectionMatrix();
+        }, { passive: false });
+      };
+      if (scene.canvas) attachWheel(); else scene.addEventListener('render-target-loaded', attachWheel);
 
-      // Wheel zoom (desktop)
-      root.addEventListener('wheel', function(e){
-        e.preventDefault();
-        if (!scene.camera) return;
-        var step = (e.deltaY > 0 ? +2 : -2);
-        scene.camera.fov = clamp(scene.camera.fov + step, fovMin, fovMax);
-        scene.camera.updateProjectionMatrix();
-      }, { passive: false });
-
-      // Pinch zoom (mobile)
+      // --- Pinch zoom (mobile) ---
       var touches = [];
       root.addEventListener('touchstart', function(e){
-        if (e.touches.length >= 2) { touches = [e.touches[0], e.touches[1]]; }
+        if (e.touches.length >= 2) {
+          touches = [e.touches[0], e.touches[1]];
+        }
       }, { passive: true });
 
       root.addEventListener('touchmove', function(e){
-        if (e.touches.length >= 2 && touches.length === 2 && scene.camera) {
+        if (e.touches.length >= 2 && touches.length === 2) {
           var t0 = e.touches[0], t1 = e.touches[1];
           var prev = Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY);
           var curr = Math.hypot(t0.clientX - t1.clientX, t0.clientY - t1.clientY);
           var delta = prev - curr; // pinch-in => positive
           var step = (delta > 0 ? +1.5 : -1.5);
-          scene.camera.fov = clamp(scene.camera.fov + step, fovMin, fovMax);
-          scene.camera.updateProjectionMatrix();
+          cam.fov = clamp(cam.fov + step, fovMin, fovMax);
+          cam.updateProjectionMatrix();
           touches = [t0, t1];
           e.preventDefault();
         }
@@ -86,25 +81,7 @@
   })();
   </script>
 
-  <script>
-(function(){
-  var scene = document.querySelector('a-scene');
-  scene.addEventListener('loaded', function(){
-    var cam = scene.camera;
-    if (!cam) return;
-    var fovMin = 30, fovMax = 100;
-    scene.canvas.addEventListener('wheel', function(e){
-      e.preventDefault();
-      var step = (e.deltaY > 0 ? +2 : -2);
-      cam.fov = Math.min(fovMax, Math.max(fovMin, cam.fov + step));
-      cam.updateProjectionMatrix();
-    }, { passive: false });
-  });
-})();
-</script>
-
   <noscript>
-    <!-- Fallback: show flat image if JS/WebGL disabled -->
     <img src="{{ include.src | relative_url }}" alt="360 panorama" style="width:100%;height:auto;">
   </noscript>
 </div>
