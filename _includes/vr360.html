@@ -1,0 +1,111 @@
+{%- assign _id = include.id | default: "vr360-" | append: include.src_mp4 | replace: "/", "-" | replace: ".", "-" -%}
+<div class="vr-360-wrapper" id="{{ _id }}" style="max-width:100%;">
+  <style>
+    .vr-360-wrapper { position: relative; }
+    .vr-360-wrapper .vr-360-caption { margin: .5rem 0 0; font-size: .9rem; color: #666; }
+    .vr-360-wrapper .vr-360-overlay {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      font: 500 1rem/1.2 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: rgba(0,0,0,.35); color: #fff; cursor: pointer; user-select: none; visibility: hidden;
+    }
+    .vr-360-wrapper.is-paused .vr-360-overlay { visibility: visible; }
+    .vr-360-wrapper .vr-360-overlay .btn {
+      padding: .6rem 1rem; background: rgba(0,0,0,.6); border-radius: 999px; border: 1px solid rgba(255,255,255,.35);
+      backdrop-filter: blur(2px);
+    }
+  </style>
+
+  <!-- A-Frame scene -->
+  <a-scene
+    embedded
+    vr-mode-ui="enabled: true"
+    renderer="antialias: true"
+    style="width: 100%; height: {{ include.height | default: '60vh' }};"
+  >
+    <a-assets>
+      {%- comment -%} Prefer WebM + MP4 for broad compatibility {%- endcomment -%}
+      {%- if include.src_webm -%}
+      <video id="{{ _id }}-asset"
+             src="{{ include.src_webm | relative_url }}"
+             crossorigin="anonymous"
+             preload="auto"
+             {% unless include.autoplay == 'false' %}autoplay{% endunless %}
+             {% unless include.loop == 'false' %}loop{% endunless %}
+             {% unless include.muted == 'false' %}muted{% endunless %}
+             playsinline webkit-playsinline>
+      </video>
+      {%- else -%}
+      <video id="{{ _id }}-asset"
+             src="{{ include.src_mp4 | relative_url }}"
+             crossorigin="anonymous"
+             preload="auto"
+             {% unless include.autoplay == 'false' %}autoplay{% endunless %}
+             {% unless include.loop == 'false' %}loop{% endunless %}
+             {% unless include.muted == 'false' %}muted{% endunless %}
+             playsinline webkit-playsinline>
+      </video>
+      {%- endif -%}
+      {%- if include.poster -%}
+      <img id="{{ _id }}-poster" src="{{ include.poster | relative_url }}">
+      {%- endif -%}
+    </a-assets>
+
+    <!--
+      rotation="0 180 0" flips yaw so initial view faces "front"
+      adjust as needed (e.g., 0 90 0) if your video’s forward direction is offset
+    -->
+    <a-videosphere src="#{{ _id }}-asset" rotation="0 180 0"></a-videosphere>
+
+    <!-- Camera / look controls (mouse drag or device gyro) -->
+    <a-entity camera look-controls wasd-controls position="0 0 0"></a-entity>
+  </a-scene>
+
+  <!-- Tap-to-start overlay for autoplay-restricted browsers -->
+  <div class="vr-360-overlay">
+    <div class="btn">Tap to start 360° video</div>
+  </div>
+
+  {%- if include.caption -%}
+  <p class="vr-360-caption">{{ include.caption }}</p>
+  {%- endif -%}
+
+  <script>
+    (function(){
+      var root   = document.getElementById('{{ _id }}');
+      var video  = document.getElementById('{{ _id }}-asset');
+      var overlay = root.querySelector('.vr-360-overlay');
+
+      function tryPlay() {
+        if (!video) return;
+        var p = video.play();
+        if (p && typeof p.then === 'function') {
+          p.then(function(){ root.classList.remove('is-paused'); })
+           .catch(function(){
+             root.classList.add('is-paused');
+             overlay.addEventListener('click', function(){
+               video.play().then(function(){ root.classList.remove('is-paused'); });
+             }, { once: true });
+           });
+        }
+      }
+
+      // In case autoplay succeeds
+      video.addEventListener('playing', function(){ root.classList.remove('is-paused'); });
+      video.addEventListener('pause',   function(){ root.classList.add('is-paused'); });
+
+      // iOS/Safari often needs a user gesture unless muted
+      tryPlay();
+      // Also retry on scene load just in case assets weren’t ready yet
+      var scene = root.querySelector('a-scene');
+      scene && scene.addEventListener('loaded', tryPlay);
+    })();
+  </script>
+
+  <noscript>
+    <video controls playsinline poster="{{ include.poster | relative_url }}" style="width:100%; max-width:100%;">
+      {%- if include.src_webm -%}<source src="{{ include.src_webm | relative_url }}" type="video/webm">{%- endif -%}
+      <source src="{{ include.src_mp4 | relative_url }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </noscript>
+</div>
