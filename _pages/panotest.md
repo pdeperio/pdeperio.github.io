@@ -2,9 +2,6 @@
 permalink: /panotest/
 title: "Panotest"
 author_profile: true
-redirect_from: 
-  - /panotest/
-  - /panotest.html
 ---
 
 <!-- A-Frame -->
