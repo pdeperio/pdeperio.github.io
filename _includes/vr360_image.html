@@ -1,12 +1,11 @@
 {%- assign _id = include.id | default: "vr360-" | append: include.src | replace: "/", "-" | replace: ".", "-" -%}
-<div class="vr-360-wrapper" id="{{ _id }}" style="max-width:100%;">
+<div class="vr-360-wrapper" id="{{ _id }}" style="max-width:100%; position:relative;">
   <style>
-    .vr-360-wrapper { position: relative; }
-    .vr-360-wrapper .vr-360-caption { margin:.5rem 0 0; font-size:.9rem; color:#666; }
-    /* Make sure A-Frame canvas receives input */
     .vr-360-wrapper canvas.a-canvas { touch-action: none !important; pointer-events: auto !important; }
     .vr-360-wrapper .a-canvas { cursor: grab; }
     .vr-360-wrapper .a-canvas:active { cursor: grabbing; }
+    /* Stop parents from hijacking scroll/drag */
+    .vr-360-wrapper { overscroll-behavior: contain; }
   </style>
 
   <a-scene
@@ -19,49 +18,73 @@
       <img id="{{ _id }}-asset" src="{{ include.src | relative_url }}" crossorigin="anonymous">
     </a-assets>
 
-    <!-- 360 still -->
     <a-sky id="{{ _id }}-sky" src="#{{ _id }}-asset" rotation="0 -90 0"></a-sky>
 
-    <!-- Camera: reverse drag direction -->
-    <a-entity id="{{ _id }}-cam" camera look-controls="reverseMouseDrag: true; pointerLockEnabled: false" position="0 0 0"></a-entity>
+    <!-- Camera rig with explicit look-controls -->
+    <a-entity id="{{ _id }}-cam"
+      camera
+      look-controls="reverseMouseDrag: true; mouseEnabled: true; touchEnabled: true; pointerLockEnabled: false"
+      position="0 0 0">
+    </a-entity>
   </a-scene>
 
   {%- if include.caption -%}
-  <p class="vr-360-caption">{{ include.caption }}</p>
+  <p style="margin:.5rem 0 0; font-size:.9rem; color:#666">{{ include.caption }}</p>
   {%- endif -%}
 
   <script>
   (function(){
     var root  = document.getElementById('{{ _id }}');
     var scene = root.querySelector('a-scene');
+    var camEl = document.getElementById('{{ _id }}-cam');
 
-    function clamp(v, a, b){ return Math.min(b, Math.max(a, v)); }
+    function clamp(v,a,b){ return Math.min(b, Math.max(a, v)); }
+
+    function normalizeWheelDelta(e){
+      // Cross-browser wheel (pixels vs lines vs legacy)
+      var dy = ('deltaY' in e) ? e.deltaY : (e.wheelDeltaY ? -e.wheelDeltaY : (e.wheelDelta ? -e.wheelDelta : 0));
+      if (e.deltaMode === 1) dy *= 15;  // lines -> pixels (Firefox)
+      return dy;
+    }
+
+    function attachWheelZoom(target, cam, fovMin, fovMax){
+      if (!target) return;
+      target.addEventListener('wheel', function(e){
+        // Keep the event here (themes sometimes stop it higher up)
+        e.preventDefault(); e.stopPropagation();
+        var dy = normalizeWheelDelta(e);
+        var step = (dy > 0 ? +2 : -2);
+        cam.fov = clamp(cam.fov + step, fovMin, fovMax);
+        cam.updateProjectionMatrix();
+      }, { passive: false });
+    }
 
     scene.addEventListener('loaded', function(){
-      var cam = scene.camera;               // THREE.PerspectiveCamera
+      // Make sure look-controls is actually active and reversed
+      if (!camEl.components['look-controls']) {
+        camEl.setAttribute('look-controls', 'enabled: true; reverseMouseDrag: true; mouseEnabled: true; touchEnabled: true; pointerLockEnabled: false');
+      } else {
+        camEl.components['look-controls'].reverseMouseDrag = true;
+        camEl.components['look-controls'].pointerLockEnabled = false;
+        camEl.components['look-controls'].mouseEnabled = true;
+        camEl.components['look-controls'].touchEnabled = true;
+      }
+
+      var cam = scene.camera; // THREE.PerspectiveCamera
       if (!cam) return;
 
-      var fovMin = 30, fovMax = 100;        // zoom bounds (smaller FOV = “zoomed in”)
+      var fovMin = 30, fovMax = 100;
 
-      // --- Wheel zoom (desktop) ---
-      // attach to scene.canvas once it's ready
-      var attachWheel = function(){
-        var target = scene.canvas || root;
-        target.addEventListener('wheel', function(e){
-          e.preventDefault();
-          var step = (e.deltaY > 0 ? +2 : -2);
-          cam.fov = clamp(cam.fov + step, fovMin, fovMax);
-          cam.updateProjectionMatrix();
-        }, { passive: false });
-      };
-      if (scene.canvas) attachWheel(); else scene.addEventListener('render-target-loaded', attachWheel);
+      // Attach wheel zoom to multiple layers to beat theme interceptors
+      attachWheelZoom(scene.canvas, cam, fovMin, fovMax);                  // primary
+      attachWheelZoom(root, cam, fovMin, fovMax);                          // wrapper
+      attachWheelZoom(scene.renderer && scene.renderer.domElement, cam, fovMin, fovMax); // fallback
+      attachWheelZoom(window, cam, fovMin, fovMax);                        // ultimate fallback
 
-      // --- Pinch zoom (mobile) ---
+      // Pinch zoom
       var touches = [];
       root.addEventListener('touchstart', function(e){
-        if (e.touches.length >= 2) {
-          touches = [e.touches[0], e.touches[1]];
-        }
+        if (e.touches.length >= 2) touches = [e.touches[0], e.touches[1]];
       }, { passive: true });
 
       root.addEventListener('touchmove', function(e){
@@ -78,10 +101,15 @@
         }
       }, { passive: false });
     });
+
+    // Safety: ensure drag is reversed even if A-Frame re-inits (rare)
+    scene.addEventListener('componentinitialized', function(evt){
+      if (evt.detail && evt.detail.name === 'look-controls' && evt.target === camEl){
+        camEl.setAttribute('look-controls', 'reverseMouseDrag: true; pointerLockEnabled: false; mouseEnabled: true; touchEnabled: true');
+      }
+    });
   })();
   </script>
 
-  <noscript>
-    <img src="{{ include.src | relative_url }}" alt="360 panorama" style="width:100%;height:auto;">
-  </noscript>
+  <noscript><img src="{{ include.src | relative_url }}" alt="360 panorama" style="width:100%;height:auto;"></noscript>
 </div>
