@@ -1,115 +1,110 @@
-{%- assign _id = include.id | default: "vr360-" | append: include.src | replace: "/", "-" | replace: ".", "-" -%}
-<div class="vr-360-wrapper" id="{{ _id }}" style="max-width:100%; position:relative;">
-  <style>
-    .vr-360-wrapper canvas.a-canvas { touch-action: none !important; pointer-events: auto !important; }
-    .vr-360-wrapper .a-canvas { cursor: grab; }
-    .vr-360-wrapper .a-canvas:active { cursor: grabbing; }
-    /* Stop parents from hijacking scroll/drag */
-    .vr-360-wrapper { overscroll-behavior: contain; }
-  </style>
+{%- comment -%}
+Drop-in 360° image viewer using Pannellum, preserving the vr360_image.html API.
+Supports: wheel zoom, pinch zoom, drag (with optional inversion), fullscreen.
+Params:
+  - src (required): path to equirectangular JPG/PNG
+  - height (optional): CSS height (default 60vh)
+  - caption (optional)
+  - invert_drag (optional): "true" to reverse drag direction
+  - hfov, min_hfov, max_hfov, yaw, pitch (optionals)
+{%- endcomment -%}
 
-  <a-scene
-    embedded
-    vr-mode-ui="enabled: true"
-    renderer="antialias: true"
-    style="width: 100%; height: {{ include.height | default: '60vh' }};"
-  >
-    <a-assets>
-      <img id="{{ _id }}-asset" src="{{ include.src | relative_url }}" crossorigin="anonymous">
-    </a-assets>
+{%- assign _id = include.id | default: "pano-" | append: include.src | replace: "/", "-" | replace: ".", "-" -%}
 
-    <a-sky id="{{ _id }}-sky" src="#{{ _id }}-asset" rotation="0 -90 0"></a-sky>
+<!-- Pannellum (once per page is fine; duplicates are ignored by the browser cache) -->
+<link rel="stylesheet" href="https://unpkg.com/pannellum@2.5.6/build/pannellum.css">
+<script src="https://unpkg.com/pannellum@2.5.6/build/pannellum.js"></script>
 
-    <!-- Camera rig with explicit look-controls -->
-    <a-entity id="{{ _id }}-cam"
-      camera
-      look-controls="reverseMouseDrag: true; mouseEnabled: true; touchEnabled: true; pointerLockEnabled: false"
-      position="0 0 0">
-    </a-entity>
-  </a-scene>
-
-  {%- if include.caption -%}
-  <p style="margin:.5rem 0 0; font-size:.9rem; color:#666">{{ include.caption }}</p>
-  {%- endif -%}
-
-  <script>
-  (function(){
-    var root  = document.getElementById('{{ _id }}');
-    var scene = root.querySelector('a-scene');
-    var camEl = document.getElementById('{{ _id }}-cam');
-
-    function clamp(v,a,b){ return Math.min(b, Math.max(a, v)); }
-
-    function normalizeWheelDelta(e){
-      // Cross-browser wheel (pixels vs lines vs legacy)
-      var dy = ('deltaY' in e) ? e.deltaY : (e.wheelDeltaY ? -e.wheelDeltaY : (e.wheelDelta ? -e.wheelDelta : 0));
-      if (e.deltaMode === 1) dy *= 15;  // lines -> pixels (Firefox)
-      return dy;
-    }
-
-    function attachWheelZoom(target, cam, fovMin, fovMax){
-      if (!target) return;
-      target.addEventListener('wheel', function(e){
-        // Keep the event here (themes sometimes stop it higher up)
-        e.preventDefault(); e.stopPropagation();
-        var dy = normalizeWheelDelta(e);
-        var step = (dy > 0 ? +2 : -2);
-        cam.fov = clamp(cam.fov + step, fovMin, fovMax);
-        cam.updateProjectionMatrix();
-      }, { passive: false });
-    }
-
-    scene.addEventListener('loaded', function(){
-      // Make sure look-controls is actually active and reversed
-      if (!camEl.components['look-controls']) {
-        camEl.setAttribute('look-controls', 'enabled: true; reverseMouseDrag: true; mouseEnabled: true; touchEnabled: true; pointerLockEnabled: false');
-      } else {
-        camEl.components['look-controls'].reverseMouseDrag = true;
-        camEl.components['look-controls'].pointerLockEnabled = false;
-        camEl.components['look-controls'].mouseEnabled = true;
-        camEl.components['look-controls'].touchEnabled = true;
-      }
-
-      var cam = scene.camera; // THREE.PerspectiveCamera
-      if (!cam) return;
-
-      var fovMin = 30, fovMax = 100;
-
-      // Attach wheel zoom to multiple layers to beat theme interceptors
-      attachWheelZoom(scene.canvas, cam, fovMin, fovMax);                  // primary
-      attachWheelZoom(root, cam, fovMin, fovMax);                          // wrapper
-      attachWheelZoom(scene.renderer && scene.renderer.domElement, cam, fovMin, fovMax); // fallback
-      attachWheelZoom(window, cam, fovMin, fovMax);                        // ultimate fallback
-
-      // Pinch zoom
-      var touches = [];
-      root.addEventListener('touchstart', function(e){
-        if (e.touches.length >= 2) touches = [e.touches[0], e.touches[1]];
-      }, { passive: true });
-
-      root.addEventListener('touchmove', function(e){
-        if (e.touches.length >= 2 && touches.length === 2) {
-          var t0 = e.touches[0], t1 = e.touches[1];
-          var prev = Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY);
-          var curr = Math.hypot(t0.clientX - t1.clientX, t0.clientY - t1.clientY);
-          var delta = prev - curr; // pinch-in => positive
-          var step = (delta > 0 ? +1.5 : -1.5);
-          cam.fov = clamp(cam.fov + step, fovMin, fovMax);
-          cam.updateProjectionMatrix();
-          touches = [t0, t1];
-          e.preventDefault();
-        }
-      }, { passive: false });
-    });
-
-    // Safety: ensure drag is reversed even if A-Frame re-inits (rare)
-    scene.addEventListener('componentinitialized', function(evt){
-      if (evt.detail && evt.detail.name === 'look-controls' && evt.target === camEl){
-        camEl.setAttribute('look-controls', 'reverseMouseDrag: true; pointerLockEnabled: false; mouseEnabled: true; touchEnabled: true');
-      }
-    });
-  })();
-  </script>
-
-  <noscript><img src="{{ include.src | relative_url }}" alt="360 panorama" style="width:100%;height:auto;"></noscript>
+<div id="{{ _id }}" class="pano360"
+     style="width:100%;height:{{ include.height | default: '60vh' }};background:#000;border-radius:8px;overflow:hidden;overscroll-behavior:contain;touch-action:none">
 </div>
+{%- if include.caption -%}
+<p style="margin:.5rem 0 0;font-size:.9rem;color:#666">{{ include.caption }}</p>
+{%- endif -%}
+
+<script>
+(function(){
+  var el = document.getElementById('{{ _id }}');
+  if (!el || !window.pannellum) return;
+
+  var invert = "{{ include.invert_drag | default: 'false' }}" === "true";
+  var viewer = pannellum.viewer(el, {
+    type: "equirectangular",
+    panorama: "{{ include.src | relative_url }}",
+    autoLoad: true,
+    showZoomCtrl: true,
+    showFullscreenCtrl: true,
+    keyboardZoom: true,
+    draggable: true,
+    mouseZoom: true,
+    hfov: {{ include.hfov | default: 100 }},
+    minHfov: {{ include.min_hfov | default: 40 }},
+    maxHfov: {{ include.max_hfov | default: 120 }},
+    yaw: {{ include.yaw | default: 0 }},
+    pitch: {{ include.pitch | default: 0 }}
+  });
+
+  // Invert drag direction if requested (applies to mouse/touch)
+  if (invert) {
+    // We wrap viewer's drag handling by translating deltas.
+    // Listen on container and feed inverted movements via yaw/pitch setters.
+    var dragging = false, start = null, base = null;
+    // Disable internal drag so we can control direction.
+    el.classList.add('pano-custom-drag');
+    viewer.setOption('draggable', false);
+
+    function clamp(v, a, b){ return Math.min(b, Math.max(a, v)); }
+
+    function onDown(e){
+      dragging = true;
+      var pt = ('touches' in e) ? e.touches[0] : e;
+      start = {x: pt.clientX, y: pt.clientY};
+      base = {yaw: viewer.getYaw(), pitch: viewer.getPitch()};
+      el.style.cursor = 'grabbing';
+      e.preventDefault();
+    }
+    function onMove(e){
+      if (!dragging) return;
+      var pt = ('touches' in e) ? e.touches[0] : e;
+      var dx = pt.clientX - start.x;
+      var dy = pt.clientY - start.y;
+      var scale = 0.1; // sensitivity
+      // Inverted: move left -> yaw right, move up -> pitch down
+      viewer.setYaw(base.yaw + dx * scale);
+      viewer.setPitch(clamp(base.pitch - dy * scale, -85, 85));
+      e.preventDefault();
+    }
+    function onUp(){ dragging = false; el.style.cursor = ''; }
+
+    el.addEventListener('mousedown', onDown, {passive:false});
+    window.addEventListener('mousemove', onMove, {passive:false});
+    window.addEventListener('mouseup', onUp, {passive:true});
+    el.addEventListener('touchstart', onDown, {passive:false});
+    el.addEventListener('touchmove', onMove, {passive:false});
+    el.addEventListener('touchend', onUp, {passive:true});
+  }
+
+  // Make sure wheel/pinch always work even if theme has passive listeners
+  function wheelHandler(e){
+    // Normalize deltas; positive => zoom out by increasing hfov
+    var dy = ('deltaY' in e) ? e.deltaY : (e.wheelDelta ? -e.wheelDelta : 0);
+    if (e.deltaMode === 1) dy *= 15; // lines -> px
+    var step = (dy > 0 ? +3 : -3);
+    var next = viewer.getHfov() + step;
+    var minH = viewer.getConfig().minHfov || 40, maxH = viewer.getConfig().maxHfov || 120;
+    viewer.setHfov(Math.max(minH, Math.min(maxH, next)));
+    e.preventDefault(); e.stopPropagation();
+  }
+  el.addEventListener('wheel', wheelHandler, {passive:false});
+  // Also attach to the internal canvas once it exists.
+  var tryCanvas = setInterval(function(){
+    var canvas = el.querySelector('canvas');
+    if (canvas){
+      canvas.addEventListener('wheel', wheelHandler, {passive:false});
+      clearInterval(tryCanvas);
+    }
+  }, 100);
+})();
+</script>
+
+<noscript><img src="{{ include.src | relative_url }}" alt="360 panorama" style="width:100%;height:auto;"></noscript>
