@@ -1,0 +1,30 @@
+{%- assign _id = include.id | default: "vr360-" | append: include.src | replace: "/", "-" | replace: ".", "-" -%}
+<div class="vr-360-wrapper" id="{{ _id }}" style="max-width:100%;">
+  <style>
+    .vr-360-wrapper { position: relative; }
+    .vr-360-wrapper .vr-360-caption {
+      margin: .5rem 0 0; font-size: .9rem; color: #666;
+    }
+  </style>
+
+  <a-scene
+    embedded
+    vr-mode-ui="enabled: true"
+    renderer="antialias: true"
+    style="width: 100%; height: {{ include.height | default: '60vh' }};"
+  >
+    <a-assets>
+      <img id="{{ _id }}-asset" src="{{ include.src | relative_url }}">
+    </a-assets>
+
+    <!-- Sky sphere using the panorama -->
+    <a-sky src="#{{ _id }}-asset" rotation="0 -90 0"></a-sky>
+
+    <!-- Camera with look-controls -->
+    <a-entity camera look-controls wasd-controls position="0 0 0"></a-entity>
+  </a-scene>
+
+  {%- if include.caption -%}
+  <p class="vr-360-caption">{{ include.caption }}</p>
+  {%- endif -%}
+</div>
