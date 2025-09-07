@@ -25,5 +25,18 @@
     });
   });
   </script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    pannellum.viewer('pano', {
+      type: "equirectangular",
+      panorama: "/assets/2025-08-31-opening-speech.jpg",
+      autoLoad: true,
+      showZoomCtrl: true,
+      showFullscreenCtrl: true,
+      hfov: 100, minHfov: 40, maxHfov: 120
+    });
+  });
+  </script>
+
 </body>
 </html>
